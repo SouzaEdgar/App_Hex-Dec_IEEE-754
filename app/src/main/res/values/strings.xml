@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Conversor_Anti-P1</string>
+    <string name="edit_message">Número Decimal/Hexadecimal</string>
+    <string name="button_send">Converter</string>
+    <string name="texto_ini">Conversor padrão - IEEE-754</string>
+    <string name="textview">TextView</string>
+</resources>
