@@ -25,7 +25,6 @@ class DisplayMessageActivity : AppCompatActivity() {
         var decimal = partINT - inteiro
         var binDEC = ""
 
-        //for (x in binINT.length until 24){
         while (decimal > 0.0) {
             val multResultado = decimal * 2.0
 
@@ -57,15 +56,15 @@ class DisplayMessageActivity : AppCompatActivity() {
         }
 
         if (passouDoPonto) {
-            compara -= 1 // Aqui ele desconta o valor do "."
+            compara -= 1                                             // Aqui ele desconta o valor do "."
             compara = -compara
         }
 
         val expoente: Int =
-            if (passouDoPonto) {                                                // | P = casa do ponto flutuante | U = casa do primeiro um |
-                (compara + 127)                // Expoente negativo => E = P + 127
+            if (passouDoPonto) {
+                (compara + 127) 
             } else {
-                ((x.indexOf(".") - 1) - compara + 127)                //Expoente positivo => E = P - (U + 1) + 127  (este +1 é por conta da casa do ".", visto que o array começa do 0)
+                ((x.indexOf(".") - 1) - compara + 127)              //Expoente positivo => E = P - (U + 1) + 127  (este +1 é por conta da casa do ".", visto que o array começa do 0)
             }
 
         expBIN = expoente.toString(2)
@@ -194,7 +193,7 @@ class DisplayMessageActivity : AppCompatActivity() {
                 hexaBIN += element.toString()
             } else {
                 print("\n$element é caractere especial\n")
-            } // Este laço serve para filtrar o hexadecimal tirando deixando passar somente caracteres numericos e alfabeticos
+            } // Este laço serve para filtrar o hexadecimal deixando passar somente caracteres numericos e alfabeticos
         }
         for (element in hexaBIN) {
             if (element.toString() in alfanumerico) {
@@ -311,9 +310,9 @@ class DisplayMessageActivity : AppCompatActivity() {
         var newMantissa = mantissa.replace(".","")
         var newnewMantissa = ""
 
-        if (expoente.toString().startsWith("-")) { // Caso o valor do expoente seja negativo (ELE DEFINE O LADO QUE A VÌRGULA SERA MOVIDA), caso negativo ela vai para frente, sendo necessario adicionar os 0
+        if (expoente.toString().startsWith("-")) {
             var moverNegativo = expoente*-1
-            while (moverNegativo > 1) { // O ultimo 0 vai ser adicionado  de forma manual, portanto esse 0 foi retirado do laço
+            while (moverNegativo > 1) {
                 newMantissa = "0$newMantissa"
                 moverNegativo -= 1
             }
@@ -397,7 +396,7 @@ class DisplayMessageActivity : AppCompatActivity() {
                 } else {
                     somenteNumero = false
                     break
-                } // Se possuir letra ele ja sai do
+                }
             }
         }
 
@@ -450,7 +449,6 @@ class DisplayMessageActivity : AppCompatActivity() {
                     (formatação a menor)
         """.trimIndent().also { text = it }
                 }
-                //findViewById<TextView>(R.id.textView3).apply {"numero".trimIndent().also { text = it }}
             } else {
                 val hexadecimal = valor.toString()
                 var newHexadecimal = ""
@@ -470,7 +468,6 @@ class DisplayMessageActivity : AppCompatActivity() {
                     }
                 } else {
                     findViewById<TextView>(R.id.textView3).apply {
-                        //"Binário: ${formBinDoHexa(hexadecimal)}".also {
                         "Decimal: ${binarioDoHexadecimal(binDoHexa)}".also {
                             text = it
                         }
@@ -478,7 +475,5 @@ class DisplayMessageActivity : AppCompatActivity() {
                 }
             }
         }
-
-
     }
 }
